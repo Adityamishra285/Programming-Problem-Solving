@@ -25,6 +25,7 @@ public:
         str = str + to_string(node->val) + "->";
         solve(node->left, res, str);
         solve(node->right, res, str);
+        return;
 
     }
     
