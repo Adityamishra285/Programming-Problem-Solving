@@ -67,7 +67,7 @@ void help(Node*root, int &x, bool &flag){
     
     if(root->data>x)
         help(root->left, x, flag);
-    if(root->data<x)
+    else if(root->data<x)
         help(root->right, x, flag);
     
     return;
