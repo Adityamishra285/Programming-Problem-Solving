@@ -26,57 +26,53 @@ class Solution
     //Function to find the least absolute difference between any node
 	//value of the BST and the given integer.
     
-    int floor(Node* root, int &k){
+    void floor(Node* root, int &k, int &f){
+       
+        if(root==NULL) 
+            return;
         
-        int f = -1;
-        
-        while(root){
-            
-            if(root->data==k){
-                f = root->data;
-                return f;
-            }
-            
-            if(root->data<k){
-                f = root->data;
-                root = root->right;
-            }
-            else if(root->data>k){
-                root = root->left;
-            }
-            
+        if(root->data==k){
+            f = root->data;
+            return;
         }
-        return f;
+        if(root->data<k){
+            f = root->data;
+            floor(root->right, k, f);
+        }
+            
+        else if(root->data>k){
+            floor(root->left, k, f);
+        }
+        return;
     }
     
-    int ceil(Node* root, int k){
-        int c = -1;
+    void ceil(Node* root, int &k, int &c){
+        if(root==NULL) 
+            return;
         
-        while(root){
-            
-            if(root->data==k){
-                c = root->data;
-                return c;
-            }
-            
-            if(root->data<k){
-                root = root->right;
-            }
-            else if(root->data>k){
-                 c = root->data;
-                root = root->left;
-            }
-            
+        if(root->data==k){
+            c = root->data;
+            return;
         }
-        return c;
+        if(root->data<k){
+            ceil(root->right, k, c);
+        }
+            
+        else if(root->data>k){
+            c = root->data;
+            ceil(root->left, k, c);
+        }
+        return;
+        
     }
     
     int minDiff(Node *root, int K)
     {
         //Your code here
-        int f = floor(root, K);
-        int c = ceil(root, K);
-        
+        int c = -1;
+        int f = -1;
+        floor(root, K, f);
+        ceil(root, K, c);
         int fd = abs(f-K);
         int cd = abs(c-K);
         
