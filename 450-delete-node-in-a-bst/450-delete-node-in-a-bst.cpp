@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-   TreeNode* minvalue(TreeNode* root){
+   TreeNode* insucc(TreeNode* root){
        TreeNode* temp=root;
        while(temp->left !=NULL){
             temp=temp->left;
@@ -54,7 +54,7 @@ public:
                 2. take maximum value from left subtree*/
                 
                 // using option 1
-                int minval=minvalue(root->right) ->val;  // function call
+                int minval=insucc(root->right) ->val;  // function call
                 root->val=minval;   // copy minimum value at root node
                 root->right = deleteNode(root->right, minval);
                
