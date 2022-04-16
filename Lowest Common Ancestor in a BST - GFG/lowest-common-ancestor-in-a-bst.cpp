@@ -102,9 +102,7 @@ int main()
 //Function to find the lowest common ancestor in a BST. 
 
 Node* solve(Node* root, int &n1, int &n2){
-    if(root==NULL){
-        return NULL;
-    }
+
     
     
     if(root->data==n1 || root->data==n2){
