@@ -127,40 +127,63 @@ class Solution
 {
 public:
 
-    void inorderT(Node* root, vector<Node*>&in){
+    // void inorderT(Node* root, vector<Node*>&in){
+    //     if(root==NULL)
+    //         return;
+        
+    //     inorderT(root->left, in);
+    //     in.push_back(root);
+    //     inorderT(root->right, in);
+        
+    //     return;
+    // }
+    
+    // void solve(Node* root, vector<Node*>&in, int &idx, int &n){
+    //     if(root==NULL)
+    //         return;
+        
+    //     solve(root->left, in, idx, n);
+    //     if(idx<n){
+    //     root->next = in[idx];
+    //     idx++;
+    //     }
+    //     solve(root->right, in, idx, n);
+        
+    //     return;
+    // }
+
+    // void populateNext(Node *root)
+    // {
+    //     //code here
+    //     int idx = 1;
+    //     vector<Node*>in;
+    //     inorderT(root, in);
+    //     int n = in.size();
+    //     solve(root, in, idx, n);
+
+    // }
+    
+    void inorderT(Node* &root, Node* &prev){
         if(root==NULL)
             return;
         
-        inorderT(root->left, in);
-        in.push_back(root);
-        inorderT(root->right, in);
+        inorderT(root->left, prev);
         
-        return;
+        if(prev!=NULL){
+            prev->next = root;
+            prev = root;
+        }
+        else
+            prev = root;
+        
+        inorderT(root->right, prev);
     }
     
-    void solve(Node* root, vector<Node*>&in, int &idx, int &n){
-        if(root==NULL)
-            return;
-        
-        solve(root->left, in, idx, n);
-        if(idx<n){
-        root->next = in[idx];
-        idx++;
-        }
-        solve(root->right, in, idx, n);
-        
-        return;
-    }
-
     void populateNext(Node *root)
     {
         //code here
-        int idx = 1;
-        vector<Node*>in;
-        inorderT(root, in);
-        int n = in.size();
-        solve(root, in, idx, n);
-
+        Node* prev = NULL;
+        inorderT(root, prev);
     }
 };
 
