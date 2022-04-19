@@ -94,13 +94,17 @@ struct Node {
 class Solution {
   public:
     // Return the Kth smallest element in the given BST
-    int KthSmallestElement(Node *root, int K) {
+    int KthSmallestElement(Node *root, int k) {
         // add code here
-        vector<int>res;
+        // vector<int>res;
+        int i = 1;
         Node* curr = root;
         while(curr){
             if(curr->left==NULL){
-                res.push_back(curr->data);
+                // res.push_back(curr->data);
+                if(i==k)
+                    return curr->data;
+                i++;
                 curr = curr->right;
             }
             else{
@@ -115,22 +119,26 @@ class Solution {
                 }
                 else if(prev->right==curr){
                     prev->right = NULL;
-                    res.push_back(curr->data);
+                    // res.push_back(curr->data);
+                    if(i==k)
+                        return curr->data;
+                    i++;
                     curr = curr->right;
                 }
             }
         }
-        if(K<=res.size())
-        {
-        //     for(int i=0;i<res.size();i++){
-        //     cout<<res[i]<<" ";
+        // if(K<=res.size())
+        // {
+        // //     for(int i=0;i<res.size();i++){
+        // //     cout<<res[i]<<" ";
+        // // }
+        // //     cout<<endl;
+        //     return res.at(K-1);
         // }
-        //     cout<<endl;
-            return res.at(K-1);
-        }
-        else{
-            return -1;
-        }
+        // else{
+        //     return -1;
+        // }
+        return -1;
     }
 };
 
