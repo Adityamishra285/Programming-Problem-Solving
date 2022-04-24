@@ -9,22 +9,33 @@ using namespace std;
 class Solution {
   public:
   
-    void bfs(int start, vector<vector<int>> &adj, vector<int>&vis){
-        queue<int>q;
-        q.push(start);
-        vis[start] = 1;
+    // void bfs(int start, vector<vector<int>> &adj, vector<int>&vis){
+    //     queue<int>q;
+    //     q.push(start);
+    //     vis[start] = 1;
         
-        while(!q.empty()){
-            int node = q.front();
-            q.pop();
+    //     while(!q.empty()){
+    //         int node = q.front();
+    //         q.pop();
             
-            for(int i = 0;i<adj[node].size();i++){
-                if(vis[i]==0 && adj[node][i]==1){
-                    vis[i] = 1;
-                    q.push(i);
-                }
+    //         for(int i = 0;i<adj[node].size();i++){
+    //             if(vis[i]==0 && adj[node][i]==1){
+    //                 vis[i] = 1;
+    //                 q.push(i);
+    //             }
+    //         }
+    //     }
+    // }
+    
+    void dfs(int s, vector<vector<int>> &adj, vector<int>&vis){
+        vis[s] = 1;
+        
+        for(int i = 0;i<adj[s].size();i++){
+            if(vis[i]==0 && adj[s][i]==1){
+                dfs(i, adj, vis);
             }
         }
+        
     }
             
     int numProvinces(vector<vector<int>> adj, int V) {
@@ -35,7 +46,7 @@ class Solution {
         for(int i=0;i<V;i++){
             if(vis[i]==0){
                 count++;
-                bfs(i, adj, vis);
+                dfs(i, adj, vis);
             }
             
         }
