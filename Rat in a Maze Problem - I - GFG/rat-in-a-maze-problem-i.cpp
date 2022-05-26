@@ -24,7 +24,7 @@ class Solution{
     
     Concept:
     Simple hai, tm boundry conditions check kr rhe, ki jo i&j hai (rows and col) wo n-1 se chota
-    hona chhiye and 0 se bada. phir tm main me sidha check kr rhe ki agar staring index 
+    hona chhiye and 0 ya 0 se bada. phir tm main me sidha check kr rhe ki agar staring index 
     and (n-1)(n-1) 1 hai ki nhi, kyuki agar 1 nhi hoga to tm kbhi destination reach hi 
     nhi kr skte (think)
     Tb last me tm func call kr rhe, jo ek baar Down, left, right, Up jaa rha, cause DLRU 
