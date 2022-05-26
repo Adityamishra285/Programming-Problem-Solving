@@ -14,7 +14,7 @@ class Solution{
     /*
     Remember that in question that you have done in DP notebook (maze with obstecles) their are
     only 2 paths (Down and Right) so agar tum soch rhe ho ki usme Visited array kyu nhi use hua
-    to uska reason ye hai ki agar tm Ek baar Down gye to tm us down element se Up (arent)
+    to uska reason ye hai ki agar tm Ek baar Down gye to tum us down element se Up (parent)
     kabhi jaa hi nhi skte. 
     mtlb sirf down and right jaa skte to opposite jaa hi nhi skte to us path ko
     wapas traverse kr hi nhi skte, but is question me all 4 direction jaa skte, isiliye ek visited
