@@ -52,17 +52,17 @@ class Solution
 	{
 	    // Code here
 	    int sum = 0;
-	   queue<pair<int ,pair<int, int>>> q; 
-    
-    q.push({0, {K[0], K[1]}});
-    
-    vector<vector<int>> dir{{1, 2}, {-1,-2}, {-1, 2}, {1, -2},
-                          {2, 1}, {-2,-1}, {-2, 1}, {2, -1}
-    }; 
-    
-    vector<vector<bool>> vis(N+1, vector<bool> (N+1, false));  
-    
-    vis[K[0]][K[1]]=true;  
+	   queue<pair<int ,pair<int, int>>> q;
+	    q.push({0, {K[0], K[1]}});
+	    
+	    vector<vector<int>> dir{{1, 2}, {-1,-2}, {-1, 2}, {1, -2},
+                         {2, 1}, {-2,-1}, {-2, 1}, {2, -1}};
+
+	    
+	   // vector<vector<int>> dir{{1,2},{-1,-2},{-1,2},{1,-2},{2,1},{-2-1},{-2,1},{2,-1}};
+	    
+        vector<vector<bool>> vis(N+1, vector<bool>(N+1, false));
+	    vis[K[0]][K[1]]= true;
 	   
 	    while(!q.empty()){
 	            
