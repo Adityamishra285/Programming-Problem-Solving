@@ -5,9 +5,11 @@ using namespace std;
  // } Driver Code Ends
 class Solution 
 {
+
+
+
     public:
-    //Function to find out minimum steps Knight needs to reach target position.
-	int minStepToReachTarget(vector<int>&KnightPos,vector<int>&TargetPos,int N){
+    int minStepToReachTarget(vector<int>&KnightPos,vector<int>&TargetPos,int N){
     
     queue<pair<int ,pair<int, int>>> q;   // pair< no_of_steps & pair <i, j>>
     
@@ -48,6 +50,45 @@ class Solution
     }
     return -1;
 }
+    //Function to find out minimum steps Knight needs to reach target position.
+// 	int minStepToReachTarget(vector<int>&K,vector<int>&T,int N)
+// 	{
+// 	    // Code here
+// 	    int sum = 0;
+// 	    vector<vector<int>> vis(N+1, vector<int>(N+1, 0));
+// 	    vector<vector<int>> dir{{1,2},{-1,-2},{-1,2},{1,-2},{2,1},{-2-1},{-2,1},{2,-1}};
+	    
+// 	    queue<pair<int,pair<int,int>>> q;
+	    
+// 	    q.push({0, {K[0], K[1]}});
+// 	    vis[K[0]][K[1]]=1;
+	   
+// 	    while(!q.empty()){
+	            
+// 	       sum = q.front().first;
+// 	       pair<int, int> ij = q.front().second;
+//             int i = ij.first;
+//             int j = ij.second;
+//             q.pop();
+            
+//             if(i==T[0] && j==T[1]){
+//                 return sum;
+//             }
+            
+//             for(auto it:dir){
+//                 int new_i = it[0] + i;
+//                 int new_j = it[1] + j;
+                
+//                 if(new_i <=N && new_j <=N && new_i>0 && new_j>0 && vis[new_i][new_j] == 0){
+//                     q.push({sum+1, {new_i, new_j}});
+//                     vis[new_i][new_j] = 1;
+//                 }
+//             }
+//     }
+//     return -1;
+// 	}
+	
+	
 };
 
 // { Driver Code Starts.
