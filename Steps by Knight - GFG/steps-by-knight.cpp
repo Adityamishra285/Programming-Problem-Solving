@@ -59,7 +59,8 @@ class Solution
                          {2, 1}, {-2,-1}, {-2, 1}, {2, -1}};
 
 	    
-	   // vector<vector<int>> dir{{1,2},{-1,-2},{-1,2},{1,-2},{2,1},{-2-1},{-2,1},{2,-1}};
+	   // vector<vector<int>> dir{{1,2}, {-1,-2}, {-1,2}, {1,-2},
+	   //                         {2,1}, {-2-1}, {-2,1}, {2,-1}};
 	    
         vector<vector<bool>> vis(N+1, vector<bool>(N+1, false));
 	    vis[K[0]][K[1]]= true;
