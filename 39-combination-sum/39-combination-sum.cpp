@@ -19,7 +19,6 @@ public:
         if(arr[ind]<=cap){
             temp.push_back(arr[ind]);
            f(ind, arr, cap-arr[ind], temp, res);
-            temp.pop_back();
             
         }
              
